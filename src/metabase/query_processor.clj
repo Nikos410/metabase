@@ -114,8 +114,8 @@
       fetch-source-query/fetch-source-query
       log-query/log-initial-query
       cache/maybe-return-cached-results
-      normalize/normalize-query-middleware
       log-query/log-results-metadata
+      normalize/normalize-query-middleware
       catch-exceptions/catch-exceptions))
 ;; ▲▲▲ PRE-PROCESSING ▲▲▲ happens from BOTTOM-TO-TOP, e.g. the results of `expand-macros` are passed to
 ;; `substitute-parameters`
