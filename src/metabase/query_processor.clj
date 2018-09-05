@@ -28,6 +28,7 @@
              [limit :as limit]
              [log :as log-query]
              [mbql-to-native :as mbql-to-native]
+             [normalize-query :as normalize]
              [parameters :as parameters]
              [permissions :as perms]
              [resolve :as resolve]
@@ -113,6 +114,7 @@
       fetch-source-query/fetch-source-query
       log-query/log-initial-query
       cache/maybe-return-cached-results
+      normalize/normalize-query-middleware
       log-query/log-results-metadata
       catch-exceptions/catch-exceptions))
 ;; ▲▲▲ PRE-PROCESSING ▲▲▲ happens from BOTTOM-TO-TOP, e.g. the results of `expand-macros` are passed to
@@ -146,7 +148,8 @@
        driver-specific/process-query-in-context
        resolve-driver/resolve-driver
        fetch-source-query/fetch-source-query
-       bind-timezone/bind-effective-timezone))
+       bind-timezone/bind-effective-timezone
+       normalize/normalize-query-middleware))
 ;; ▲▲▲ This only does PRE-PROCESSING, so it happens from bottom to top, eventually returning the preprocessed query
 ;; instead of running it
 
